@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rojo Aburrá · Discografía</title>
+<meta name="description" content="Instrumentales de boom bap, jazz y lo-fi de Rojo Aburrá, desde Medellín.">
+<meta name="theme-color" content="#111111">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Rojo Aburrá">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta property="og:title" content="Rojo Aburrá · Discografía">
+<meta property="og:image" content="covers/a2_800.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Plan: día (Eternal Spring) papel crema con menta; noche (Concrete Valley) negro con rojo; Olium negro petróleo con cobre oxidado, como las portadas.
+   Layout: portada fija a la izquierda, lista de canciones a la derecha, reproductor anclado abajo. */
+:root{
+  --bg:#EAE6DA; --surface:#DDE7DF; --ink:#161616; --muted:#5F6A66; --line:#CFCABD; --accent:#2C6E62; --mark:#C8102E;
+  --display:'Anton', 'Impact', 'Arial Narrow', sans-serif;
+  --body:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  color-scheme: light;
+}
+body.night{
+  --bg:#111111; --surface:#1B1A1A; --ink:#EEE9E1; --muted:#9C958C; --line:#2E2B2A; --accent:#C0282D; --mark:#C8102E;
+  color-scheme: dark;
+}
+body.soviet{
+  --bg:#181513; --surface:#231F1C; --ink:#E4D8C0; --muted:#9E927E; --line:#35302B; --accent:#B03428; --mark:#C8102E;
+  color-scheme: dark;
+}
+body.oil{
+  --bg:#0C0D0F; --surface:#17181B; --ink:#ECE6DC; --muted:#968C80; --line:#2A2826; --accent:#B8784E; --mark:#C8102E;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  transition:background .35s ease,color .35s ease;padding-bottom:112px}
+@media (prefers-reduced-motion: reduce){body{transition:none}}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:20px clamp(16px,4vw,48px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.32em;font-size:15px}
+.wm{font-family:'Space Grotesk',var(--body);font-weight:500;font-size:20px;letter-spacing:.3em;display:inline-flex;align-items:baseline;line-height:1.2}
+.wm .u{display:inline-block;width:.76em;height:.76em;margin:0 .33em 0 .03em;transform:translateY(.035em)}.wm .u svg{display:block;width:100%;height:100%}.wm .last{letter-spacing:0}
+.brand small{font-family:var(--mono);font-weight:400;letter-spacing:.08em;color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:6px;background:var(--surface);padding:4px;border-radius:999px}
+.tab{border:0;background:transparent;padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tab span{font-family:var(--mono);font-weight:400;font-size:11px;margin-left:6px;opacity:.75}
+@media (max-width:560px){.tabs{display:grid;grid-template-columns:1fr 1fr;width:100%;border-radius:16px}.tab{border-radius:12px;padding:8px 10px}}
+
+main{display:grid;grid-template-columns:minmax(280px,440px) 1fr;gap:clamp(24px,4vw,56px);
+  padding:32px clamp(16px,4vw,48px);max-width:1280px;margin:0 auto}
+@media (max-width:860px){main{grid-template-columns:1fr}}
+.side{position:sticky;top:24px;align-self:start;display:flex;flex-direction:column;gap:18px}
+@media (max-width:860px){.side{position:static}}
+.cover{width:100%;aspect-ratio:1;border-radius:6px;display:block;box-shadow:0 18px 40px -18px rgba(0,0,0,.45);background:var(--surface)}
+.chooser{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 12px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.chip img{width:22px;height:22px;border-radius:3px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,68px);line-height:.95;margin:0;letter-spacing:.01em;text-wrap:balance;text-transform:uppercase}
+.meta{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.blurb{margin:0;max-width:62ch}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:1px solid var(--ink);background:transparent;padding:10px 16px;border-radius:4px;font-weight:600;font-size:14px}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn[disabled]{opacity:.5;cursor:progress}
+.note{font-size:13px;color:var(--muted);margin:0}
+.sig{border-left:3px solid var(--mark);padding:2px 0 2px 12px;font-size:14px;color:var(--muted);margin:0}
+
+.list{display:flex;flex-direction:column}
+.list-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:4px}
+.list-head h2{margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.row{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:start;padding:14px 8px;border-bottom:1px solid var(--line);
+  cursor:pointer;border-left:3px solid transparent;background:transparent;text-align:left;width:100%;border-top:0;border-right:0}
+.row:hover{background:var(--surface)}
+.row.on{border-left-color:var(--accent);background:var(--surface)}
+.num{font-family:var(--mono);color:var(--muted);font-size:14px;padding-top:2px;font-variant-numeric:tabular-nums}
+.row.on .num{color:var(--accent)}
+.t{font-weight:700;font-size:17px;line-height:1.25}
+.b{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
+.s{font-size:14px;color:var(--muted);margin-top:6px;max-width:64ch}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:3px;padding:1px 6px;color:var(--muted)}
+.tag.style{border-color:var(--ink);color:var(--ink)}
+.dur{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:var(--bg);display:grid;
+  grid-template-columns:auto auto 1fr;gap:16px;align-items:center;padding:12px clamp(16px,4vw,48px);z-index:5}
+.player img{width:56px;height:56px;border-radius:3px}
+.ctrls{display:flex;gap:6px;align-items:center}
+.ctrls button{background:transparent;border:0;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--bg)}
+.ctrls button.play{background:var(--bg);color:var(--ink)}
+.ctrls svg{width:18px;height:18px;fill:currentColor}
+.np{min-width:0;display:flex;flex-direction:column;gap:4px}
+.np-t{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.np-s{font-family:var(--mono);font-size:12px;opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seek{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums}
+input[type=range]{flex:1;accent-color:var(--accent);min-width:60px}
+@media (max-width:560px){.player{grid-template-columns:auto 1fr;gap:8px 12px;padding-top:10px;padding-bottom:10px}.player img{display:none}.np{grid-column:1 / -1;order:-1}body{padding-bottom:170px}}
+.player img:not([src]){visibility:hidden}
+footer{max-width:1280px;margin:0 auto;padding:8px clamp(16px,4vw,48px) 40px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div><span class="wm" aria-label="Rojo Aburrá">ROJO&nbsp;AB<span class="u" aria-hidden="true"><svg viewBox="-20 -20 40 40"><circle r="19" fill="#C8102E"/><path d="M-9.5 -6 L0 7.5 L9.5 -6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>RR<span class="last">Á</span></span><br><small>Medellín · instrumentales · 2026</small></div>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Álbumes">
+    <button class="tab" role="tab" id="tab-A1" aria-selected="true" data-a="A1">Eternal Spring<span>día</span></button>
+    <button class="tab" role="tab" id="tab-A2" aria-selected="false" data-a="A2">Concrete Valley<span>noche</span></button>
+    <button class="tab" role="tab" id="tab-A3" aria-selected="false" data-a="A3">Olium<span>petróleo</span></button>
+    <button class="tab" role="tab" id="tab-A4" aria-selected="false" data-a="A4">Sputnik<span>cosmos</span></button>
+  </div>
+</header>
+
+<main>
+  <section class="side" aria-label="Álbum">
+    <img class="cover" id="cover" alt="Portada del álbum">
+    <h1 id="title"></h1>
+    <div class="meta" id="meta"></div>
+    <p class="blurb" id="blurb"></p>
+    <div class="actions">
+      <button class="btn primary" id="playAll">Reproducir álbum</button>
+      <button class="btn" id="dlZip" hidden>Descargar álbum (.zip)</button>
+      <button class="btn" id="dlCover" hidden>Descargar portada</button>
+    </div>
+    <p class="note" id="dlNote" aria-live="polite"></p>
+    <p class="sig">Todas las pistas abren con la misma firma: cae la aguja del tocadiscos y suena un acorde de Rhodes (La♭ maj9♯11) con un toque de vibráfono.</p>
+  </section>
+
+  <section class="list" aria-label="Canciones">
+    <div class="list-head"><h2 id="listTitle">Canciones</h2><span class="meta" id="listMeta"></span></div>
+    <div id="rows"></div>
+  </section>
+</main>
+<footer>Música compuesta y producida con inteligencia artificial (Claude) para Rojo Aburrá: batería, bajo, teclados, vientos y coros generados nota por nota, sin samples de otros discos. Portadas: Rojo Aburrá.</footer>
+
+<div class="player" role="region" aria-label="Reproductor">
+  <img id="npCover" alt="">
+  <div class="ctrls">
+    <button id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <button id="toggle" class="play" aria-label="Reproducir"><svg viewBox="0 0 24 24" id="icon"><path d="M7 4v16l13-8z"/></svg></button>
+    <button id="next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+  </div>
+  <div class="np">
+    <div class="np-t" id="npT">Elige una canción</div>
+    <div class="np-s" id="npS">Rojo Aburrá</div>
+    <div class="seek"><span id="cur">0:00</span><input type="range" id="bar" min="0" max="1000" value="0" aria-label="Posición"><span id="tot">0:00</span></div>
+  </div>
+</div>
+<audio id="audio" preload="metadata" playsinline></audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const DATA = [{"id": "A1", "title": "Eternal Spring", "blurb": "El día en el Valle de Aburrá. Arranca al amanecer en Santa Elena, baja en Metrocable y recorre los barrios del occidente, el centro y el sur hasta el atardecer en Las Palmas, cuando se prenden las luces de la ciudad. Beats tranquilos, con Rhodes, saxo, vibráfono y flauta.", "mood": "calma, jazz, día", "tracks": [{"n": 1, "title": "Silleteros at Dawn", "barrio": "Santa Elena", "story": "Amanece en las montañas del oriente; los silleteros alistan las flores. Intro lo-fi con pájaros.", "bpm": 76, "key": "Eb mayor", "style": "Lo-fi", "inst": ["Rhodes", "Flauta"], "dur": 147.5, "src": "audio/a1-01.mp3"}, {"n": 2, "title": "Metrocable Clouds", "barrio": "Línea L · Arví", "story": "La cabina baja entre la neblina y el valle aparece de a poco. Vibráfono en arpegio, ride de jazz.", "bpm": 84, "key": "A lidio", "style": "Jazz boom bap", "inst": ["Vibráfono", "Rhodes", "Flauta"], "dur": 191.1, "src": "audio/a1-02.mp3"}, {"n": 3, "title": "Laureles Circular", "barrio": "Laureles", "story": "Calles que dan vueltas en círculo: el bajo camina y el saxo da la vuelta a la manzana.", "bpm": 88, "key": "F mayor", "style": "Jazz boom bap", "inst": ["Rhodes", "Saxo", "Vibráfono"], "dur": 207.2, "src": "audio/a1-03.mp3"}, {"n": 4, "title": "Envigado Espresso", "barrio": "Envigado", "story": "Un tinto en el parque del sur; murmullo de café y un piano que se toma su tiempo.", "bpm": 86, "key": "Bb mayor", "style": "Jazz boom bap", "inst": ["Piano", "Saxo"], "dur": 195.2, "src": "audio/a1-04.mp3"}, {"n": 5, "title": "La 70 Sunday", "barrio": "Estadio · La 70", "story": "Domingo por la 70: trompeta con sordina, vibráfono y un scratch que pasa en bicicleta.", "bpm": 90, "key": "G mayor", "style": "Jazz boom bap", "inst": ["Rhodes", "Trompeta", "Vibráfono"], "dur": 186.7, "src": "audio/a1-05.mp3"}, {"n": 6, "title": "Atanasio Afternoon", "barrio": "Atanasio Girardot", "story": "Tarde de partido a lo lejos. El estadio ruge detrás del muro y los vientos empujan. Guiño al Poderoso.", "bpm": 92, "key": "D dórico", "style": "Jazz boom bap", "inst": ["Rhodes picado", "Trompeta", "Saxo"], "dur": 201.0, "src": "audio/a1-06.mp3"}, {"n": 7, "title": "Belén Rooftops", "barrio": "Belén", "story": "Terrazas, cometas y ropa colgada al sol. Respiro lo-fi a mitad de camino.", "bpm": 80, "key": "C mayor", "style": "Lo-fi", "inst": ["Rhodes", "Vibráfono"], "dur": 161.4, "src": "audio/a1-07.mp3"}, {"n": 8, "title": "Botero's Plaza", "barrio": "Centro · Plaza Botero", "story": "Las esculturas gordas miran pasar a la gente. Piano juguetón y bajo que camina con calma.", "bpm": 89, "key": "Ab mayor", "style": "Jazz boom bap", "inst": ["Piano", "Saxo"], "dur": 213.0, "src": "audio/a1-08.mp3"}, {"n": 9, "title": "Pueblito Paisa", "barrio": "Cerro Nutibara", "story": "Subida al cerro y vista de la ciudad. Blues menor con guitarra punteada y Rhodes.", "bpm": 84, "key": "E dórico", "style": "Jazz boom bap", "inst": ["Rhodes", "Guitarra"], "dur": 216.8, "src": "audio/a1-09.mp3"}, {"n": 10, "title": "Botanical Rain", "barrio": "Jardín Botánico", "story": "Aguacero de la tarde bajo el Orquideorama. Lo-fi lento, lluvia y vibráfono.", "bpm": 74, "key": "Db menor", "style": "Lo-fi", "inst": ["Rhodes", "Vibráfono"], "dur": 151.3, "src": "audio/a1-10.mp3"}, {"n": 11, "title": "Wishes Park", "barrio": "Parque de los Deseos", "story": "Junto al Planetario: arpegios que miran al cielo, flauta y un colchón de cuerdas.", "bpm": 82, "key": "E mayor", "style": "Jazz boom bap", "inst": ["Vibráfono", "Flauta", "Rhodes"], "dur": 181.0, "src": "audio/a1-11.mp3"}, {"n": 12, "title": "Floresta Station", "barrio": "La Floresta · Línea B", "story": "El metro anuncia la estación; saxo de andén y batería que no se apura.", "bpm": 88, "key": "C dórico", "style": "Jazz boom bap", "inst": ["Rhodes", "Saxo"], "dur": 199.0, "src": "audio/a1-12.mp3"}, {"n": 13, "title": "Provenza Slow Walk", "barrio": "El Poblado · Provenza", "story": "Caminata lenta entre árboles y terrazas. Flauta y vibráfono conversan.", "bpm": 85, "key": "D mayor", "style": "Jazz boom bap", "inst": ["Rhodes", "Flauta", "Vibráfono"], "dur": 188.9, "src": "audio/a1-13.mp3"}, {"n": 14, "title": "San Antonio Pigeons", "barrio": "Parque San Antonio", "story": "Palomas alrededor del Pájaro de Botero. Trompeta melancólica y bajo caminante.", "bpm": 87, "key": "G menor", "style": "Jazz boom bap", "inst": ["Piano", "Trompeta"], "dur": 181.9, "src": "audio/a1-14.mp3"}, {"n": 15, "title": "Golden Hour in Las Palmas", "barrio": "Alto de Las Palmas", "story": "El atardecer desde el mirador. El momento más emotivo del día: saxo, vibráfono y cuerdas.", "bpm": 83, "key": "Eb mayor", "style": "Jazz boom bap", "inst": ["Rhodes", "Saxo", "Vibráfono"], "dur": 225.1, "src": "audio/a1-15.mp3"}, {"n": 16, "title": "Aburrá Lights On", "barrio": "Valle de Aburrá", "story": "Se prenden las luces del valle y se escuchan los grillos. Cierre lo-fi que abre la noche.", "bpm": 78, "key": "F# menor", "style": "Lo-fi", "inst": ["Rhodes", "Vibráfono"], "dur": 153.1, "src": "audio/a1-16.mp3"}], "listTitle": "Recorrido por barrios"}, {"id": "A2", "title": "Concrete Valley", "blurb": "La noche en Medellín. Empieza donde terminó el primer álbum y sube por las comunas: escaleras eléctricas de la 13, el centro a mil, el tango de Manrique, el cypher de Aranjuez y el estadio en rojo y azul, hasta el último metro a Niquía con la madrugada. Bombos duros, vientos, cuerdas y scratches.", "mood": "noche, peso, calle", "tracks": [{"n": 1, "title": "Nightfall Over the Valley", "barrio": "Valle de Aburrá", "story": "Cae la noche. Cuerdas oscuras y un saxo solo anuncian que la ciudad cambia de cara.", "bpm": 84, "key": "C menor", "style": "Boom bap pesado", "inst": ["Piano", "Saxo"], "dur": 142.5, "src": "audio/a2-01.mp3"}, {"n": 2, "title": "Comuna 13 Escalators", "barrio": "Comuna 13 · San Javier", "story": "Las escaleras eléctricas suben entre grafitis y break dance. Vientos duros y scratch.", "bpm": 92, "key": "D menor", "style": "Boom bap pesado", "inst": ["Rhodes picado", "Trompeta"], "dur": 206.3, "src": "audio/a2-02.mp3"}, {"n": 3, "title": "Graffitour", "barrio": "Comuna 13", "story": "Recorrido por los murales que cuentan la historia del barrio. Saxo oscuro y scratches.", "bpm": 94, "key": "G dórico", "style": "Boom bap pesado", "inst": ["Rhodes", "Saxo", "Vibráfono"], "dur": 191.8, "src": "audio/a2-03.mp3"}, {"n": 4, "title": "Junín Rush", "barrio": "Centro · Carrera Junín", "story": "El centro a mil: pitos, vendedores y pasos rápidos. Hi-hats apurados y vientos.", "bpm": 96, "key": "E menor", "style": "Boom bap pesado", "inst": ["Piano", "Trompeta"], "dur": 175.4, "src": "audio/a2-04.mp3"}, {"n": 5, "title": "Parque Berrío Hustle", "barrio": "Parque Berrío", "story": "Rebusque y chance bajo el viaducto del metro. Piano menor armónico y saxo de esquina.", "bpm": 90, "key": "Bb menor armónico", "style": "Boom bap pesado", "inst": ["Piano", "Saxo"], "dur": 194.7, "src": "audio/a2-05.mp3"}, {"n": 6, "title": "Line A Northbound", "barrio": "Metro · Línea A", "story": "El metro va hacia el norte con la ciudad iluminada a los lados. Cuerdas y vientos en marcha.", "bpm": 93, "key": "F menor", "style": "Boom bap pesado", "inst": ["Rhodes", "Vibráfono", "Trompeta"], "dur": 198.9, "src": "audio/a2-06.mp3"}, {"n": 7, "title": "Prado Ghosts", "barrio": "Prado Centro", "story": "Casonas viejas y patios en silencio. Lo-fi oscuro con línea cromática de cine negro.", "bpm": 80, "key": "C# menor armónico", "style": "Lo-fi", "inst": ["Vibráfono", "Rhodes"], "dur": 167.4, "src": "audio/a2-07.mp3"}, {"n": 8, "title": "Manrique Tango", "barrio": "Manrique · La 45", "story": "La avenida Gardel y la Casa Gardeliana: bandoneón sobre boom bap, piano que marca el tango.", "bpm": 88, "key": "A menor armónico", "style": "Boom bap pesado", "inst": ["Piano", "Bandoneón", "Vibráfono"], "dur": 215.4, "src": "audio/a2-08.mp3"}, {"n": 9, "title": "Aranjuez Cypher", "barrio": "Aranjuez", "story": "Esquina de cypher en el barrio que dio una nueva ola de rap paisa. Crudo, largo, para rapear.", "bpm": 91, "key": "F# dórico", "style": "Boom bap pesado", "inst": ["Rhodes picado", "Saxo"], "dur": 226.9, "src": "audio/a2-09.mp3"}, {"n": 10, "title": "Castilla Corner Talk", "barrio": "Castilla", "story": "Conversa de esquina a medianoche. Respiro lo-fi con guitarra punteada.", "bpm": 82, "key": "Eb dórico", "style": "Lo-fi", "inst": ["Rhodes", "Guitarra"], "dur": 151.7, "src": "audio/a2-10.mp3"}, {"n": 11, "title": "Santo Domingo Library", "barrio": "Santo Domingo Savio", "story": "Las rocas negras de la biblioteca sobre la montaña. Pesado y solemne, con cuerdas.", "bpm": 89, "key": "B menor", "style": "Boom bap pesado", "inst": ["Piano", "Vibráfono", "Saxo"], "dur": 204.9, "src": "audio/a2-11.mp3"}, {"n": 12, "title": "Moravia Rises", "barrio": "Moravia", "story": "Del basurero al jardín: el track más luminoso de la noche, con trompeta y saxo juntos.", "bpm": 92, "key": "G menor", "style": "Boom bap pesado", "inst": ["Rhodes", "Trompeta", "Saxo"], "dur": 208.9, "src": "audio/a2-12.mp3"}, {"n": 13, "title": "Robledo Thunder", "barrio": "Robledo", "story": "Tormenta sobre las lomas del occidente. Truenos, frigio y el bombo más duro del disco.", "bpm": 95, "key": "D frigio", "style": "Boom bap pesado", "inst": ["Rhodes picado", "Saxo"], "dur": 187.3, "src": "audio/a2-13.mp3"}, {"n": 14, "title": "Guayaquil Market", "barrio": "Guayaquil · Minorista", "story": "El mercado antes del amanecer: carretas, gritos y regateo. Trompeta y scratches.", "bpm": 93, "key": "E menor armónico", "style": "Boom bap pesado", "inst": ["Piano", "Trompeta"], "dur": 180.9, "src": "audio/a2-14.mp3"}, {"n": 15, "title": "Red and Blue Anthem", "barrio": "Atanasio Girardot · DIM", "story": "Noche de clásico. La hinchada del Poderoso canta y los vientos responden. El clímax del álbum.", "bpm": 95, "key": "C menor", "style": "Boom bap pesado", "inst": ["Piano", "Trompeta", "Saxo"], "dur": 222.6, "src": "audio/a2-15.mp3"}, {"n": 16, "title": "Olaya Herrera Runway", "barrio": "Aeropuerto Olaya Herrera", "story": "La pista vieja donde la ciudad perdió a Gardel. Avión a lo lejos, saxo y cuerdas melancólicas.", "bpm": 84, "key": "F menor", "style": "Boom bap pesado", "inst": ["Rhodes", "Saxo"], "dur": 191.1, "src": "audio/a2-16.mp3"}, {"n": 17, "title": "Last Train to Niquía", "barrio": "Niquía · fin de la Línea A", "story": "El último metro de la noche, casi vacío. Lo-fi en mayor: se asoma la madrugada y vuelve la primavera.", "bpm": 78, "key": "D mayor", "style": "Lo-fi", "inst": ["Rhodes", "Vibráfono", "Flauta"], "dur": 202.3, "src": "audio/a2-17.mp3"}], "listTitle": "Recorrido por barrios"}, {"id": "A3", "title": "Olium", "blurb": "El petróleo como metáfora. Lo que estuvo muerto millones de años bajo el mar sale a la superficie, se vuelve oro negro, poder y codicia, enciende guerras, incendia el aire y mancha el océano, hasta que el pozo se seca. Boom bap duro y oscuro: bombos pesados, bajo distorsionado, piano grave, órgano, coros y campanas.", "mood": "oscuro, crudo, pesado", "listTitle": "Cuatro actos", "tracks": [{"n": 1, "title": "Fossil Hymn", "barrio": "I · El fondo", "story": "Un himno para los muertos de hace millones de años que duermen bajo el mar. Órgano, coro y el primer golpe.", "bpm": 80, "key": "C menor", "style": "Boom bap duro", "inst": ["Órgano", "Campana", "Coro", "Bajo distorsionado"], "dur": 149.4, "src": "audio/a3-01.mp3"}, {"n": 2, "title": "Crude", "barrio": "I · El fondo", "story": "Lo que sale del fondo, sin refinar. Piano grave, bajo sucio y el bombo más seco.", "bpm": 88, "key": "F frigio", "style": "Boom bap duro", "inst": ["Piano grave", "Campana", "Scratch", "Bajo distorsionado"], "dur": 196.3, "src": "audio/a3-02.mp3"}, {"n": 3, "title": "Black Gold", "barrio": "I · El fondo", "story": "El brillo que enceguece. Vientos de imperio sobre un boom bap ancho.", "bpm": 90, "key": "D menor armónico", "style": "Boom bap duro", "inst": ["Piano picado", "Trompeta", "Cuerdas", "Vientos", "Bajo distorsionado"], "dur": 210.7, "src": "audio/a3-03.mp3"}, {"n": 4, "title": "Wellhead Pressure", "barrio": "I · El fondo", "story": "La presión que sube antes del chorro. Cuerdas tensas, golpes de bomba y hi-hats apurados.", "bpm": 92, "key": "E frigio", "style": "Boom bap duro", "inst": ["Piano grave", "Saxo", "Cuerdas", "Scratch", "Bajo distorsionado"], "dur": 185.4, "src": "audio/a3-04.mp3"}, {"n": 5, "title": "Petrodollar", "barrio": "II · El poder", "story": "La plata que mueve el mundo. Bajo gordo, piano frío, saxo y campana.", "bpm": 89, "key": "G menor", "style": "Boom bap duro", "inst": ["Piano grave", "Saxo", "Campana", "Vientos", "Scratch", "Bajo distorsionado"], "dur": 204.9, "src": "audio/a3-05.mp3"}, {"n": 6, "title": "Fossil Kings", "barrio": "II · El poder", "story": "Los dueños del subsuelo en sus torres. Órgano, coro oscuro y trompetas de corte.", "bpm": 86, "key": "Bb menor", "style": "Boom bap duro", "inst": ["Órgano", "Trompeta", "Coro", "Vientos", "Bajo distorsionado"], "dur": 214.7, "src": "audio/a3-06.mp3"}, {"n": 7, "title": "Pipeline", "barrio": "II · El poder", "story": "El tubo que atraviesa todo sin detenerse. Bombo en marcha, el balancín bombeando y un bajo que no suelta.", "bpm": 92, "key": "A menor", "style": "Boom bap duro", "inst": ["Piano picado", "Campana", "Scratch", "Bajo distorsionado"], "dur": 193.2, "src": "audio/a3-07.mp3"}, {"n": 8, "title": "Gasoline Veins", "barrio": "II · El poder", "story": "La adicción a quemar. Un respiro lento y turbio: el track más lo-fi del disco.", "bpm": 78, "key": "C# menor", "style": "Lo-fi oscuro", "inst": ["Rhodes", "Saxo", "Cuerdas", "Bajo distorsionado"], "dur": 159.2, "src": "audio/a3-08.mp3"}, {"n": 9, "title": "Flare Stack", "barrio": "III · El fuego", "story": "La llama que arde toda la noche sobre la refinería. Interludio de fuego, órgano y cuerdas.", "bpm": 84, "key": "F# frigio", "style": "Boom bap duro", "inst": ["Órgano", "Campana", "Cuerdas", "Bajo distorsionado"], "dur": 134.0, "src": "audio/a3-09.mp3"}, {"n": 10, "title": "Refinery Smoke", "barrio": "III · El fuego", "story": "Humo negro, chimeneas y turnos de noche. Piano en loop, saxo y bajo distorsionado.", "bpm": 88, "key": "B menor armónico", "style": "Boom bap duro", "inst": ["Piano grave", "Saxo", "Scratch", "Bajo distorsionado"], "dur": 199.0, "src": "audio/a3-10.mp3"}, {"n": 11, "title": "Oil and Blood", "barrio": "III · El fuego", "story": "Guerras por un barril. El track más pesado: bombos, vientos, coro y sirenas a lo lejos.", "bpm": 94, "key": "D frigio", "style": "Boom bap duro", "inst": ["Piano picado", "Trompeta", "Campana", "Coro", "Vientos", "Scratch", "Bajo distorsionado"], "dur": 207.1, "src": "audio/a3-11.mp3"}, {"n": 12, "title": "Combustion", "barrio": "III · El fuego", "story": "Todo explota. Golpes secos, cortes de silencio y scratches.", "bpm": 95, "key": "G menor armónico", "style": "Boom bap duro", "inst": ["Piano picado", "Saxo", "Vientos", "Scratch", "Bajo distorsionado"], "dur": 187.3, "src": "audio/a3-12.mp3"}, {"n": 13, "title": "Black Tide", "barrio": "IV · La mancha", "story": "La marea negra llega a la orilla en plena tormenta. Mar, truenos, lluvia y cuerdas.", "bpm": 84, "key": "E menor", "style": "Boom bap duro", "inst": ["Piano grave", "Saxo", "Cuerdas", "Bajo distorsionado"], "dur": 216.8, "src": "audio/a3-13.mp3"}, {"n": 14, "title": "Tar Pit", "barrio": "IV · La mancha", "story": "Atrapado en el alquitrán como los dinosaurios. Lento, aplastante, casi sin aire.", "bpm": 76, "key": "C frigio", "style": "Boom bap duro", "inst": ["Órgano", "Campana", "Coro", "Bajo distorsionado"], "dur": 194.9, "src": "audio/a3-14.mp3"}, {"n": 15, "title": "Rust and Ruin", "barrio": "IV · La mancha", "story": "La plataforma abandonada cruje oxidada en medio del mar. Metal que gime, piano roto y trompeta.", "bpm": 86, "key": "A frigio", "style": "Boom bap duro", "inst": ["Piano grave", "Trompeta", "Scratch", "Bajo distorsionado"], "dur": 200.8, "src": "audio/a3-15.mp3"}, {"n": 16, "title": "Dry Well", "barrio": "IV · La mancha", "story": "El pozo se secó. Lo que queda después del oro negro: viento, mar, un órgano y el último bombo.", "bpm": 80, "key": "F menor", "style": "Boom bap duro", "inst": ["Órgano", "Saxo", "Campana", "Coro", "Bajo distorsionado"], "dur": 212.4, "src": "audio/a3-16.mp3"}]}, {"id": "A4", "title": "Sputnik", "blurb": "La carrera espacial soviética, de 1957 a 1991. Desde el cosmódromo en la estepa hasta la estación Mir, pasando por el primer satélite, Laika, el primer hombre y la primera mujer en el espacio, la caminata espacial y el apretón de manos en órbita. Boom bap con 808, coros masculinos graves, metales de marcha, redobles militares y los pitidos del Sputnik.", "mood": "fuerte, épico, espacial", "listTitle": "La carrera espacial", "tracks": [{"n": 1, "title": "Baikonur", "barrio": "1955 · Kazajistán", "story": "El cosmódromo en medio de la estepa. Viento, cuenta regresiva y el primer coro.", "bpm": 82, "key": "D menor", "style": "Boom bap 808", "inst": ["808", "Piano grave", "Corno", "Coro", "Redoble"], "dur": 148.8, "src": "audio/a4-01.mp3"}, {"n": 2, "title": "Sputnik 1957", "barrio": "4 de octubre de 1957", "story": "Una esfera de metal pita sobre el planeta y el mundo entero la escucha por radio.", "bpm": 90, "key": "A dórico", "style": "Boom bap 808", "inst": ["808", "Piano picado", "Campana", "Metales", "Scratch"], "dur": 194.7, "src": "audio/a4-02.mp3"}, {"n": 3, "title": "Laika", "barrio": "Sputnik 2 · 1957", "story": "La perra callejera de Moscú que subió al espacio y no volvió. Coro triste, corno y un latido.", "bpm": 80, "key": "E menor", "style": "Boom bap 808", "inst": ["808", "Piano grave", "Corno", "Coro"], "dur": 200.4, "src": "audio/a4-03.mp3"}, {"n": 4, "title": "Luna", "barrio": "Luna 2 · 1959", "story": "El primer objeto humano que toca la Luna. Campanas frías y bombo seco.", "bpm": 88, "key": "F# frigio", "style": "Boom bap 808", "inst": ["808", "Piano picado", "Campana", "Scratch"], "dur": 185.4, "src": "audio/a4-04.mp3"}, {"n": 5, "title": "Chief Designer", "barrio": "La oficina secreta", "story": "El ingeniero cuyo nombre era secreto de Estado dirigía todo desde las sombras. Piano grave y metales.", "bpm": 89, "key": "C menor armónico", "style": "Boom bap 808", "inst": ["808", "Piano grave", "Trompeta", "Metales"], "dur": 204.9, "src": "audio/a4-05.mp3"}, {"n": 6, "title": "Vostok", "barrio": "La nave · 1961", "story": "La cápsula de una sola plaza espera en la plataforma. Coro, metales y el motor que despierta.", "bpm": 92, "key": "G menor", "style": "Boom bap 808", "inst": ["808", "Piano picado", "Corno", "Trompeta", "Coro", "Metales", "Redoble"], "dur": 206.3, "src": "audio/a4-06.mp3"}, {"n": 7, "title": "Poyekhali!", "barrio": "12 de abril de 1961", "story": "\"¡Vámonos!\", dice el primer hombre en el espacio al despegar. El clímax del disco.", "bpm": 94, "key": "D menor", "style": "Boom bap 808", "inst": ["808", "Piano picado", "Trompeta", "Corno", "Coro", "Metales", "Redoble", "Scratch"], "dur": 222.4, "src": "audio/a4-07.mp3"}, {"n": 8, "title": "108 Minutes", "barrio": "Una vuelta a la Tierra", "story": "Una órbita completa en una hora y 48 minutos. Flotando, sin gravedad, con la radio de fondo.", "bpm": 84, "key": "Bb dórico", "style": "Lo-fi espacial", "inst": ["808", "Rhodes", "Corno", "Coro"], "dur": 191.1, "src": "audio/a4-08.mp3"}, {"n": 9, "title": "Chaika", "barrio": "\"Gaviota\" · 1963", "story": "La señal de radio de la primera mujer en el espacio. La canción más melódica, con flauta y coro.", "bpm": 88, "key": "A menor", "style": "Boom bap 808", "inst": ["808", "Piano grave", "Flauta", "Corno", "Coro", "Metales"], "dur": 196.3, "src": "audio/a4-09.mp3"}, {"n": 10, "title": "Twelve Minutes Outside", "barrio": "Primera caminata espacial · 1965", "story": "Doce minutos fuera de la nave y un traje que se infla y casi no lo deja volver a entrar. Tenso.", "bpm": 90, "key": "E frigio", "style": "Boom bap 808", "inst": ["808", "Piano picado", "Saxo", "Cuerdas", "Scratch"], "dur": 186.7, "src": "audio/a4-10.mp3"}, {"n": 11, "title": "Iron Curtain Static", "barrio": "Guerra Fría", "story": "La carrera contra el otro lado del mundo, en secreto y por radio. Interferencias y metales cortantes.", "bpm": 93, "key": "G frigio", "style": "Boom bap 808", "inst": ["808", "Piano picado", "Trompeta", "Metales", "Scratch"], "dur": 198.9, "src": "audio/a4-11.mp3"}, {"n": 12, "title": "Lunokhod", "barrio": "El robot lunar · 1970", "story": "Ocho ruedas recorren la Luna manejadas a control remoto desde la Tierra. Pesado y mecánico.", "bpm": 86, "key": "C frigio", "style": "Boom bap 808", "inst": ["808", "Órgano", "Campana", "Scratch"], "dur": 195.2, "src": "audio/a4-12.mp3"}, {"n": 13, "title": "Salyut", "barrio": "Primera estación espacial · 1971", "story": "Salyut quiere decir saludo. Coro solemne, órgano y metales en lo alto.", "bpm": 85, "key": "F menor", "style": "Boom bap 808", "inst": ["808", "Órgano", "Corno", "Coro", "Metales"], "dur": 208.7, "src": "audio/a4-13.mp3"}, {"n": 14, "title": "Handshake in Orbit", "barrio": "Soyuz y Apolo · 1975", "story": "Una nave soviética y una estadounidense se acoplan y las tripulaciones se dan la mano. El track más luminoso.", "bpm": 90, "key": "Eb menor", "style": "Boom bap 808", "inst": ["808", "Piano grave", "Trompeta", "Saxo", "Coro", "Metales"], "dur": 202.7, "src": "audio/a4-14.mp3"}, {"n": 15, "title": "Mir", "barrio": "1986 – 1991", "story": "La estación Mir sigue en órbita mientras el país que la lanzó desaparece abajo: un cosmonauta despega de la Unión Soviética y aterriza en Rusia. Cierre con coro, corno y los pitidos del comienzo.", "bpm": 80, "key": "D menor", "style": "Boom bap 808", "inst": ["808", "Órgano", "Corno", "Campana", "Coro"], "dur": 215.4, "src": "audio/a4-15.mp3"}]}];
+const ARTIST = 'Rojo Aburrá';
+const $ = id => document.getElementById(id);
+const audio = $('audio');
+const fmt = s => { s = Math.max(0, Math.round(s)); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); };
+let albumIdx = 0, queue = null, qi = -1;
+
+function coverSrc(aid, size){ return 'covers/' + aid.toLowerCase() + (size ? '_' + size : '') + '.jpg'; }
+
+function renderAlbum(){
+  const A = DATA[albumIdx];
+  document.body.classList.toggle('night', A.id === 'A2');
+  document.body.classList.toggle('oil', A.id === 'A3');
+  document.body.classList.toggle('soviet', A.id === 'A4');
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.a === A.id)));
+  $('cover').src = coverSrc(A.id);
+  $('cover').alt = 'Portada de ' + A.title;
+  $('title').textContent = A.title;
+  const total = A.tracks.reduce((a, t) => a + t.dur, 0);
+  const bpms = A.tracks.map(t => t.bpm);
+  $('meta').textContent = `${A.tracks.length} beats · ${Math.round(total/60)} min · ${Math.min(...bpms)}–${Math.max(...bpms)} BPM · ${A.mood}`;
+  $('blurb').textContent = A.blurb;
+  $('listTitle').textContent = A.listTitle || 'Canciones';
+  $('listMeta').textContent = fmt(total);
+  $('rows').innerHTML = A.tracks.map((t, i) => `
+    <button class="row" data-i="${i}" aria-label="Reproducir ${t.title}">
+      <span class="num">${String(t.n).padStart(2,'0')}</span>
+      <span>
+        <div class="t">${t.title}</div>
+        <div class="b">${t.barrio}</div>
+        <div class="s">${t.story}</div>
+        <div class="tags"><span class="tag style">${t.style}</span><span class="tag">${t.bpm} BPM</span><span class="tag">${t.key}</span>${t.inst.map(x => `<span class="tag">${x}</span>`).join('')}</div>
+      </span>
+      <span class="dur">${fmt(t.dur)}</span>
+    </button>`).join('');
+  markPlaying();
+}
+
+function markPlaying(){
+  const A = DATA[albumIdx];
+  document.querySelectorAll('.row').forEach(r => {
+    r.classList.toggle('on', queue === albumIdx && Number(r.dataset.i) === qi);
+  });
+}
+
+function play(a, i){
+  queue = a; qi = i;
+  const A = DATA[a], t = A.tracks[i];
+  audio.src = t.src;
+  audio.play().catch(() => {});
+  $('npT').textContent = t.title;
+  $('npS').textContent = `${ARTIST} · ${A.title} · ${t.barrio}`;
+  $('npCover').src = coverSrc(A.id, 500);
+  $('tot').textContent = fmt(t.dur);
+  markPlaying();
+}
+
+function step(d){
+  if (queue === null) { play(albumIdx, 0); return; }
+  const A = DATA[queue];
+  let n = qi + d;
+  if (n >= A.tracks.length) { // al terminar un álbum, sigue con el siguiente
+    queue = (queue + 1) % DATA.length; n = 0;
+  }
+  if (n < 0) n = 0;
+  play(queue, n);
+}
+
+document.querySelector('.tabs').addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if (!b) return;
+  albumIdx = DATA.findIndex(a => a.id === b.dataset.a); renderAlbum();
+});
+$('rows').addEventListener('click', e => {
+  const r = e.target.closest('.row'); if (!r) return;
+  play(albumIdx, Number(r.dataset.i));
+});
+$('playAll').addEventListener('click', () => play(albumIdx, 0));
+$('toggle').addEventListener('click', () => {
+  if (queue === null) { play(albumIdx, 0); return; }
+  audio.paused ? audio.play().catch(() => {}) : audio.pause();
+});
+$('prev').addEventListener('click', () => { if (audio.currentTime > 4) audio.currentTime = 0; else step(-1); });
+$('next').addEventListener('click', () => step(1));
+audio.addEventListener('ended', () => step(1));
+const setIcon = p => { $('icon').innerHTML = p ? '<path d="M7 4v16l13-8z"/>' : '<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>'; $('toggle').setAttribute('aria-label', p ? 'Reproducir' : 'Pausar'); };
+audio.addEventListener('play', () => setIcon(false));
+audio.addEventListener('pause', () => setIcon(true));
+let dragging = false;
+audio.addEventListener('timeupdate', () => {
+  $('cur').textContent = fmt(audio.currentTime);
+  if (!dragging && audio.duration) $('bar').value = Math.round(audio.currentTime / audio.duration * 1000);
+});
+$('bar').addEventListener('input', () => { dragging = true; if (audio.duration) $('cur').textContent = fmt($('bar').value / 1000 * audio.duration); });
+$('bar').addEventListener('change', () => { if (audio.duration) audio.currentTime = $('bar').value / 1000 * audio.duration; dragging = false; });
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' && !['INPUT','BUTTON'].includes(document.activeElement.tagName)) { e.preventDefault(); $('toggle').click(); }
+});
+
+renderAlbum();
+
+// Descargas: enlaces normales del navegador
+function saveBlob(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+}
+(() => {
+  $('dlZip').hidden = false; $('dlCover').hidden = false;
+  const note = $('dlNote');
+  $('dlCover').addEventListener('click', async () => {
+    const A = DATA[albumIdx];
+    try {
+      const blob = await (await fetch(coverSrc(A.id))).blob();
+      saveBlob(blob, `${ARTIST} - ${A.title} (portada).jpg`);
+      note.textContent = 'Portada descargada.';
+    } catch (e) { note.textContent = 'No se pudo descargar la portada. Intenta de nuevo.'; }
+  });
+  $('dlZip').addEventListener('click', async () => {
+    const A = DATA[albumIdx];
+    const btn = $('dlZip'); btn.disabled = true;
+    try {
+      const zip = new JSZip();
+      const folder = zip.folder(`${ARTIST} - ${A.title}`);
+      for (let i = 0; i < A.tracks.length; i++) {
+        const t = A.tracks[i];
+        note.textContent = `Preparando el ZIP: canción ${i + 1} de ${A.tracks.length}…`;
+        const buf = await (await fetch(t.src)).arrayBuffer();
+        folder.file(`${String(t.n).padStart(2, '0')} - ${t.title}.mp3`, buf);
+      }
+      folder.file('Portada.jpg', await (await fetch(coverSrc(A.id))).arrayBuffer());
+      note.textContent = 'Comprimiendo…';
+      const blob = await zip.generateAsync({ type: 'blob', compression: 'STORE' });
+      saveBlob(blob, `${ARTIST} - ${A.title}.zip`);
+      note.textContent = `${A.title}: ${A.tracks.length} MP3 y la portada.`;
+    } catch (e) { note.textContent = 'No se pudo armar el ZIP. Revisa la conexión e intenta de nuevo.'; }
+    btn.disabled = false;
+  });
+})();
+
+// Controles en la pantalla bloqueada, auriculares y Bluetooth
+const ms = 'mediaSession' in navigator ? navigator.mediaSession : null;
+function updateSession() {
+  if (!ms || queue === null) return;
+  const A = DATA[queue], t = A.tracks[qi];
+  const base = new URL('.', location.href).href;
+  ms.metadata = new MediaMetadata({
+    title: t.title, artist: ARTIST, album: A.title,
+    artwork: [
+      { src: base + coverSrc(A.id, 500), sizes: '500x500', type: 'image/jpeg' },
+      { src: base + coverSrc(A.id, 800), sizes: '800x800', type: 'image/jpeg' },
+    ],
+  });
+}
+if (ms) {
+  const set = (a, f) => { try { ms.setActionHandler(a, f); } catch (e) {} };
+  set('play', () => audio.play().catch(() => {}));
+  set('pause', () => audio.pause());
+  set('previoustrack', () => { if (audio.currentTime > 4) audio.currentTime = 0; else step(-1); });
+  set('nexttrack', () => step(1));
+  set('seekbackward', d => { audio.currentTime = Math.max(0, audio.currentTime - ((d && d.seekOffset) || 10)); });
+  set('seekforward', d => { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + ((d && d.seekOffset) || 10)); });
+  set('seekto', d => { if (d && d.seekTime != null) audio.currentTime = d.seekTime; });
+  audio.addEventListener('play', () => { ms.playbackState = 'playing'; updateSession(); });
+  audio.addEventListener('pause', () => { ms.playbackState = 'paused'; });
+  audio.addEventListener('loadedmetadata', () => {
+    try { ms.setPositionState({ duration: audio.duration, playbackRate: 1, position: 0 }); } catch (e) {}
+  });
+}
+
+// Recordar el último álbum abierto (solo en este navegador)
+try {
+  const last = localStorage.getItem('ra-album');
+  const k = DATA.findIndex(a => a.id === last);
+  if (k >= 0 && k !== albumIdx) { albumIdx = k; renderAlbum(); }
+  document.querySelector('.tabs').addEventListener('click', () => {
+    try { localStorage.setItem('ra-album', DATA[albumIdx].id); } catch (e) {}
+  });
+} catch (e) {}
+
+// App instalable
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+</script>
+</body>
+</html>
